@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ICHIGO</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <%= favicon_link_tag '/favicon.ico', type: 'image/ico' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-info">
+      <a href="/" class="navbar-brand">ICHIGO</a>  
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#nav1">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="nav1">
+          <ul class="navbar-nav">
+            <% if logged_in? %>
+              <li class="nav-item"><%= link_to '募集お手伝い一覧', stories_path, class:"nav-link" %></li>
+              <li class="nav-item"><a href="#" class="nav-link">タグから探す</a></Li>
+              <li class="nav-item"><%= link_to "プロフィール", user_path(current_user.id),class:"nav-link" %></li>
+              <li class="nav-item"><%= link_to 'お手伝いを募集する', new_story_path, class:"nav-link" %></li>
+              <li class="nav-item"><a href="#" class="nav-link">よくある質問</a></li>
+              <li><%= link_to "Users", users_path %></li>
+              <li class="nav-item"><%= link_to "Logout", session_path(current_user.id), method: :delete,class:"nav-link" %></li>
+            <% else %>
+              <li class="nav-item"><%= link_to "Sign up", new_user_path, class:"nav-link" %></li>
+              <li class="nav-item"><%= link_to "Login", new_session_path,class:"nav-link" %></li>
+            <% end %>
+            
+          </ul>
+        <hr class="d-md-none border-secondary my-2">
+        <form class="form-inline ml-auto">
+          <label class="sr-only" for="kw">検索キーワード</label>
+          <input type="search" class="form-control form-control-sm mr-sm-2 my-2 my-md-0" placeholder="キーワード" id="kw">
+          <button type="submit" class="btn btn-warning btn-sm my-2 my-md-0">検索</button>
+        </form>
+      </div>
+    </nav>
+     <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+    <%= yield %>
+   
+  </body>
+</html>

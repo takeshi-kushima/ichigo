@@ -1,0 +1,50 @@
+<h1><%= @user.name %>のページ</h1>
+<p>メールアドレス: <%= @user.email %></p>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+    <section class="stats">
+      <%= render 'shared/status' %>
+      <li><%= link_to "プロフィール写真を変更する", edit_user_path(current_user) %></li>
+    </section>
+  </aside>
+  
+</div>
+
+
+</div>
+<%= render 'follow_form' if logged_in? %>
+     <table>
+      <% @user.stories.each do |story| %>
+        <tr><td><%= image_tag story.image.to_s %></td></tr>
+          <tr><td><p class=" display-4 "><%= story.title %></p></td></tr>
+          <tr><td><%= story.company_name %></td></tr>
+          <tr><td><%= story.what %></td></tr>
+          <tr><td> Posted <%= time_ago_in_words(story.created_at) %> ago.</td></tr>
+          <td><%= link_to '詳細を見る', story %></td>
+          <td><%= link_to '編集する', edit_story_path(story) %></td>
+          <td><%= link_to '削除する', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<p>お気に入り一覧</p>
+  <table class>
+    <thead>
+      <tr>
+        <th>ユーザー</th>
+        <th>投稿内容</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+     
+    </tbody>
+    
+   

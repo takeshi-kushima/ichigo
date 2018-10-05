@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @story.title %>
+</p>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @story.company_name %>
+</p>
+<!--
+<p>
+  <strong>Image:</strong>
+  <#%= image_tag(@story.image) %>
+</p>
+-->
+<p>
+  <strong>アドレス</strong>
+  <%= @story.email %>
+</p>
+
+<p>
+  <strong>番号:</strong>
+  <%= @story.telephone %>
+</p>
+
+<p>
+  <strong>職種</strong>
+  <%= @story.ocuppations %>
+</p>
+
+<p>
+  <strong>What:</strong>
+  <%= @story.what %>
+</p>
+
+<p>
+  <strong>Glad:</strong>
+  <%= @story.glad %>
+</p>
+
+<p>
+  <strong>Please:</strong>
+  <%= @story.please %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @story.age %>
+</p>
+
+<p>
+  <strong>Human:</strong>
+  <%= @story.human %>
+</p>
+
+<p>
+  <strong>Work:</strong>
+  <%= @story.work %>
+</p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @story.day %>
+</p>
+
+<p>
+  <strong>Memo:</strong>
+  <%= @story.memo %>
+</p>
+
+<p>
+  <strong>Present:</strong>
+  <%= @story.present %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @story.address %>
+</p>
+
+<%= link_to 'Edit', edit_story_path(@story) %> |
+<%= link_to 'Back', stories_path %>
