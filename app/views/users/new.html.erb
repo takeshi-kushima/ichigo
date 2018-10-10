@@ -1,24 +1,27 @@
-<% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+<div class="container-fruid">
+  <div class= "text-center pt-5 pb-3 text-white jumbotron jumbotron-fluid"
+     style="height:120vh;background:url(/girl.jpg);background-size:cover;  opacity:0.8;">
+        <h2>ユーザー新規登録</h2>
+  <div class ="card mx-auto" style="width:500px; background:transparent;">
+    <div class ="card-body">
+      <%= form_for(@user) do |f| %>
+        <%= render 'shared/error_messages' %>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages' %>
+        <%= f.label :お名前 %>
+        <%= f.text_field :name, class: 'form-control' %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
+        <%= f.label :メールアドレス %> 
+        <%= f.email_field :email, class: 'form-control' %>
 
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+        <%= f.label :パスワード　※6文字以上 %>
+        <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
+        <%= f.label :password_confirmation, "パスワード入力確認" %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-
-      <%= f.submit "Create my account", class: "btn btn-primary" %>
-    <% end %>
+        <%= f.submit "アカウントを登録する", class: "btn btn-primary" %> 
+      <% end %>
+    </div>
   </div>
+</div>
 </div>

@@ -1,18 +1,22 @@
-<h1>Log in</h1>
-<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+<div class="container">
+  <div class="text-center mt-5 mb-3"><h2>ログイン</h2></div>
+  <div class ="card mx-auto" style="width:600px;">
+    <div class ="card-body">
+      <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+        <%= f.label :メールアドレス %>
+        <%= f.email_field :email %>
 
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-
-  <%= f.label :password %>
-  <%= link_to "(forgot password)", new_password_reset_path %>
-  <%= f.password_field :password %>
+        <%= f.label :パスワード %>
+        <%= link_to "(forgot password)", new_password_reset_path %>
+        <%= f.password_field :password %>
   
-  <%= f.label :remember_me, class: "checkbox inline" do %>
-    <%= f.check_box :remember_me %>
-    <span>Remember me on this computer</span>
-  <% end %>
-
-  <%= f.submit "Log in" %>
-<% end %>
-
+        <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span>Remember me on this computer</span>
+        <% end %> 
+     
+      <%= f.submit "ログイン", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
